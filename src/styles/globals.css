@@ -1,0 +1,439 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   GLOBAL CSS — School Website Template Platform
+   ===================================================== */
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366F1;
+}
+
+/* --- Selection --- */
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: #F9FAFB;
+}
+
+/* --- Base --- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =====================================================
+   MARKETPLACE PLATFORM COMPONENTS
+   ===================================================== */
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-card-hover;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-gold {
+    @apply bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent;
+  }
+
+  /* Premium button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-glow-indigo hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-xl border border-white/20 transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 text-platform-muted font-medium rounded-xl transition-all duration-300 hover:text-white hover:bg-white/5;
+  }
+
+  /* Section label */
+  .section-label {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest;
+  }
+
+  /* Animated gradient border */
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(#111827, #111827) padding-box,
+      linear-gradient(135deg, #6366F1, #8B5CF6, #EC4899) border-box;
+    border: 1px solid transparent;
+    border-radius: 16px;
+  }
+}
+
+/* =====================================================
+   PLAY SCHOOL (HAPPY KIDS) COMPONENTS
+   ===================================================== */
+@layer components {
+  .pk-btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FF6B6B] to-[#FF8E53] text-white font-bold rounded-full text-lg transition-all duration-300 hover:shadow-glow-coral hover:scale-105 active:scale-95;
+  }
+
+  .pk-btn-secondary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-white text-[#FF6B6B] font-bold rounded-full text-lg border-2 border-[#FF6B6B] transition-all duration-300 hover:bg-[#FF6B6B] hover:text-white hover:scale-105;
+  }
+
+  .pk-card {
+    @apply bg-white rounded-3xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden;
+  }
+
+  .pk-section-label {
+    @apply inline-flex items-center gap-2 px-5 py-2 bg-[#FF6B6B]/10 text-[#FF6B6B] rounded-full text-sm font-bold uppercase tracking-wider;
+  }
+
+  .pk-heading {
+    font-family: 'Nunito', sans-serif;
+    @apply font-extrabold leading-tight;
+  }
+}
+
+/* =====================================================
+   SECONDARY SCHOOL (MODERN ACADEMY) COMPONENTS
+   ===================================================== */
+@layer components {
+  .ma-btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-[#1E3A5F] text-white font-semibold rounded-lg transition-all duration-300 hover:bg-[#2563EB] hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .ma-btn-secondary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-transparent text-[#1E3A5F] font-semibold rounded-lg border-2 border-[#1E3A5F] transition-all duration-300 hover:bg-[#1E3A5F] hover:text-white;
+  }
+
+  .ma-btn-gold {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#C9A84C] to-[#F5C842] text-[#1E3A5F] font-bold rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .ma-card {
+    @apply bg-white rounded-xl shadow-sm border border-[#E2E8F0] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden;
+  }
+
+  .ma-section-label {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 bg-[#1E3A5F]/10 text-[#1E3A5F] rounded-md text-xs font-bold uppercase tracking-widest;
+  }
+
+  .ma-heading {
+    font-family: 'Playfair Display', serif;
+    @apply font-bold leading-tight;
+  }
+}
+
+/* =====================================================
+   UTILITIES
+   ===================================================== */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Animated gradient background */
+  .bg-animated-gradient {
+    background: linear-gradient(-45deg, #0A0F1C, #111827, #1a1040, #0d1b2a);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  /* Grid pattern overlay */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Dot pattern overlay */
+  .bg-dot-pattern {
+    background-image: radial-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Noise texture */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+}
+
+/* =====================================================
+   CUSTOM ANIMATIONS
+   ===================================================== */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(20px) rotate(-3deg); }
+}
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating shapes for play school */
+.float-shape-1 { animation: float 6s ease-in-out infinite; }
+.float-shape-2 { animation: float 8s ease-in-out infinite 1s; }
+.float-shape-3 { animation: floatReverse 7s ease-in-out infinite 0.5s; }
+.float-shape-4 { animation: float 9s ease-in-out infinite 2s; }
+.float-shape-5 { animation: floatReverse 6.5s ease-in-out infinite 1.5s; }
+
+/* =====================================================
+   SCROLLBAR FOR LIGHT THEME TEMPLATES
+   ===================================================== */
+.light-theme ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.light-theme ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+/* =====================================================
+   REDUCED MOTION
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =====================================================
+   LITTLE STARS PLAY SCHOOL — ls- component classes
+   ===================================================== */
+
+/* Marquee keyframes */
+@keyframes ls-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ls-marquee-track {
+  animation: ls-marquee 28s linear infinite;
+}
+.ls-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Float keyframes for decorative elements */
+@keyframes ls-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-10px) rotate(3deg); }
+}
+@keyframes ls-float-r {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-8px) rotate(-4deg); }
+}
+@keyframes ls-spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes ls-pulse-soft {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.08); }
+}
+
+.ls-float    { animation: ls-float   3.5s ease-in-out infinite; }
+.ls-float-r  { animation: ls-float-r 4.2s ease-in-out infinite; }
+.ls-float-d2 { animation: ls-float   4.8s ease-in-out infinite 0.8s; }
+.ls-float-d3 { animation: ls-float-r 3.8s ease-in-out infinite 1.6s; }
+.ls-spin     { animation: ls-spin-slow 12s linear infinite; }
+.ls-pulse    { animation: ls-pulse-soft 2.5s ease-in-out infinite; }
+
+/* Heading font */
+.ls-heading {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* Section label pill */
+.ls-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFF3CD;
+  color: #B45309;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 99px;
+  border: 1px solid #FFD96A;
+}
+
+/* Primary CTA button */
+.ls-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #263238;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 28px;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Outfit', sans-serif;
+}
+.ls-btn-primary:hover {
+  background: #1a2428;
+  transform: scale(1.03);
+}
+
+/* Secondary CTA button */
+.ls-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  color: #263238;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 13px 28px;
+  border-radius: 99px;
+  border: 1.5px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Outfit', sans-serif;
+}
+.ls-btn-secondary:hover {
+  border-color: #FFB703;
+  box-shadow: 0 4px 16px rgba(255,183,3,0.18);
+  transform: scale(1.02);
+}
+
+/* Tour card */
+.ls-tour-card {
+  background: #fff;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.ls-tour-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+/* Marquee value pill */
+.ls-value-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 72px;
+  padding: 0 28px;
+  border-radius: 99px;
+  background: #fff;
+  border: 1px solid #f0ede8;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #263238;
+  transition: all 0.2s ease;
+}
+.ls-value-pill:hover {
+  border-color: #FFB703;
+  box-shadow: 0 4px 20px rgba(255,183,3,0.15);
+  transform: scale(1.03);
+}
+
+/* Program card */
+.ls-program-card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.ls-program-card:hover {
+  box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+}
+
+/* Stat card */
+.ls-stat-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid #f0ede8;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* Marquee edge mask */
+.ls-marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+

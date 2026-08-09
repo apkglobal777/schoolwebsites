@@ -1,0 +1,116 @@
+// =====================================================
+// SCHOOL CATEGORIES DATA
+// =====================================================
+// Add new categories here without touching any component code.
+// Each category drives the navigation, filtering, and routing.
+
+export const categories = [
+  {
+    id: 'all',
+    slug: 'all',
+    label: 'All Templates',
+    emoji: '🏫',
+    count: 10,
+    description: 'Browse all school website templates',
+    featured: true,
+  },
+  {
+    id: 'play-school',
+    slug: 'play-school',
+    label: 'Play School',
+    emoji: '🎨',
+    count: 3,
+    description: 'Colorful, playful templates for nursery, LKG, UKG & Montessori schools',
+    color: '#FF6B6B',
+    bgColor: '#FFF0F0',
+    featured: true,
+  },
+  {
+    id: 'primary-school',
+    slug: 'primary-school',
+    label: 'Primary School',
+    emoji: '📚',
+    count: 2,
+    description: 'Activity-based learning templates for classes 1–5',
+    color: '#10B981',
+    bgColor: '#F0FDF4',
+    featured: false,
+    comingSoon: true,
+  },
+  {
+    id: 'secondary-school',
+    slug: 'secondary-school',
+    label: 'Secondary School',
+    emoji: '🎓',
+    count: 3,
+    description: 'Professional, academic templates for classes 6–12',
+    color: '#1E3A5F',
+    bgColor: '#EFF6FF',
+    featured: true,
+  },
+  {
+    id: 'senior-secondary',
+    slug: 'senior-secondary',
+    label: 'Senior Secondary',
+    emoji: '🏆',
+    count: 2,
+    description: 'Board exam focused templates for classes 9–12',
+    color: '#7C3AED',
+    bgColor: '#F5F3FF',
+    featured: false,
+    comingSoon: true,
+  },
+  {
+    id: 'international-school',
+    slug: 'international-school',
+    label: 'International School',
+    emoji: '🌍',
+    count: 2,
+    description: 'Global curriculum templates for international schools',
+    color: '#0EA5E9',
+    bgColor: '#F0F9FF',
+    featured: true,
+    comingSoon: true,
+  },
+  {
+    id: 'boarding-school',
+    slug: 'boarding-school',
+    label: 'Boarding School',
+    emoji: '🏰',
+    count: 2,
+    description: 'Campus & residential life focused templates',
+    color: '#92400E',
+    bgColor: '#FFFBEB',
+    featured: false,
+    comingSoon: true,
+  },
+  {
+    id: 'montessori',
+    slug: 'montessori',
+    label: 'Montessori',
+    emoji: '🌱',
+    count: 1,
+    description: 'Child development & Montessori methodology templates',
+    color: '#F59E0B',
+    bgColor: '#FFFBEB',
+    featured: false,
+    comingSoon: true,
+  },
+  {
+    id: 'special-education',
+    slug: 'special-education',
+    label: 'Special Education',
+    emoji: '💙',
+    count: 1,
+    description: 'Inclusive, accessible templates for special education schools',
+    color: '#EC4899',
+    bgColor: '#FDF2F8',
+    featured: false,
+    comingSoon: true,
+  },
+];
+
+export const getCategoryById = (id) => categories.find(c => c.id === id);
+export const getCategoryBySlug = (slug) => categories.find(c => c.slug === slug);
+export const getFeaturedCategories = () => categories.filter(c => c.featured && c.id !== 'all');
+export const getActiveCategories = () => categories.filter(c => !c.comingSoon || c.id === 'all');
